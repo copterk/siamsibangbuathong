@@ -18,6 +18,8 @@ const App = () => {
   const [appState, setAppState] = useState('LOADING'); // LOADING, SELECTION, SHAKING, RESULT
   const [selectedId, setSelectedId] = useState(null);
   const [loadProgress, setLoadProgress] = useState(0);
+  const [isLineBrowser, setIsLineBrowser] = useState(false);
+  const [showLineHelp, setShowLineHelp] = useState(false);
 
   const handleSelect = (id) => {
     setSelectedId(id);
@@ -47,6 +49,12 @@ const App = () => {
         setTimeout(() => setAppState('SELECTION'), 1500);
       });
     }
+  }, []);
+
+  // Detect LINE Browser
+  useEffect(() => {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    setIsLineBrowser(/Line/i.test(ua));
   }, []);
 
   useEffect(() => {
@@ -388,6 +396,10 @@ const App = () => {
           <div className="px-4 py-6 flex flex-col gap-3 relative z-10 mb-8">
             <button
               onClick={async () => {
+                if (isLineBrowser) {
+                  setShowLineHelp(true);
+                  return;
+                }
                 try {
                   // Fetch the image as a Blob to force download instead of open-in-tab
                   const response = await fetch(currentFortune.asset);
@@ -415,6 +427,27 @@ const App = () => {
               className="w-full bg-gradient-to-r from-[#D4AF37] via-[#FFEA00] to-[#D4AF37] text-[#FF007A] py-4 rounded-2xl font-black text-xl shadow-[0_6px_0_#8B6914] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-3 border-2 border-[#8B6914] animate-pulse-slow"
             >
               📥 ดาวน์โหลดคำทำนาย
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* LINE Help Modal */}
+      {showLineHelp && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 animate-fade-in">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setShowLineHelp(false)}></div>
+          <div className="bg-white rounded-3xl p-8 shadow-2xl relative z-10 w-full max-w-sm text-center border-4 border-[#FFEA00]">
+            <div className="text-5xl mb-4">📱</div>
+            <h3 className="text-[#FF007A] text-2xl font-black mb-4">วิธีบันทึกรูปภาพ</h3>
+            <p className="text-gray-700 font-bold leading-relaxed mb-6">
+              เนื่องจากบราวเซอร์ของ LINE ไม่รองรับการดาวน์โหลดอัตโนมัติ<br/><br/>
+              <span className="text-[#FF007A] font-black text-lg">👉 กรุณากดค้างที่รูปภาพ 👈</span><br/>แล้วเลือก <span className="text-[#FF007A] font-black">"บันทึกรูปภาพ"</span> หรือ <span className="text-[#FF007A] font-black">"Save Image"</span> เพื่อบันทึกลงเครื่องครับ
+            </p>
+            <button 
+              onClick={() => setShowLineHelp(false)}
+              className="w-full bg-[#FF007A] text-white py-3 rounded-2xl font-black text-lg shadow-lg active:scale-95 transition-all"
+            >
+              เข้าใจแล้ว
             </button>
           </div>
         </div>
