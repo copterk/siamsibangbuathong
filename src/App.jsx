@@ -198,12 +198,12 @@ const App = () => {
                   className="bg-[#E91D63] px-3 py-2 pb-3 flex flex-col items-center justify-center"
                   style={{ clipPath: 'polygon(11px 0, calc(100% - 11px) 0, 100% 50%, calc(100% - 11px) 100%, 11px 100%, 0 50%)' }}
                 >
-                  <h1 className="text-3xl font-black text-[#FFE600] text-center leading-tight tracking-[0.05em]">
+                  <h1 className="text-3xl font-black text-[#FFE600] text-center leading-tight tracking-[0.05em]" style={{ textShadow: '2px 2px 0 #4a0000', fontFamily: "'Sao Chingcha', sans-serif" }}>
                     คำทำนาย
                   </h1>
                   <div className="flex items-center justify-center gap-2 mt-1">
                     <img src="https://lh3.googleusercontent.com/d/1BXcEu8enzbjqVDk8bUs3ZtptKKm6TXp2" alt="flower" className="w-[20px] h-[20px] object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
-                    <h2 className="text-[34px] font-black text-[#FFE600] text-center leading-none tracking-wide">
+                    <h2 className="text-[34px] font-black text-[#FFE600] text-center leading-none tracking-wide" style={{ textShadow: '2px 2px 0 #4a0000', fontFamily: "'Sao Chingcha', sans-serif" }}>
                       บัวบุญ
                     </h2>
                     <img src="https://lh3.googleusercontent.com/d/1BXcEu8enzbjqVDk8bUs3ZtptKKm6TXp2" alt="flower" className="w-[20px] h-[20px] object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
