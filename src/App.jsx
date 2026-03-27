@@ -440,10 +440,10 @@ const App = () => {
             <div className="text-5xl mb-4">📱</div>
             <h3 className="text-[#FF007A] text-2xl font-black mb-4">วิธีบันทึกรูปภาพ</h3>
             <p className="text-gray-700 font-bold leading-relaxed mb-6">
-              เนื่องจากบราวเซอร์ของ LINE ไม่รองรับการดาวน์โหลดอัตโนมัติ<br/><br/>
-              <span className="text-[#FF007A] font-black text-lg">👉 กรุณากดค้างที่รูปภาพ 👈</span><br/>แล้วเลือก <span className="text-[#FF007A] font-black">"บันทึกรูปภาพ"</span> หรือ <span className="text-[#FF007A] font-black">"Save Image"</span> เพื่อบันทึกลงเครื่องครับ
+              เนื่องจากบราวเซอร์ของ LINE ไม่รองรับการดาวน์โหลดอัตโนมัติ<br /><br />
+              <span className="text-[#FF007A] font-black text-lg">👉 กรุณากดที่รูปภาพ 👈</span><br />แล้วเลือก <span className="text-[#FF007A] font-black">"บันทึกรูปภาพ"</span> หรือ <span className="text-[#FF007A] font-black">"แคปเจอร์หน้าจอ"</span> เพื่อบันทึกลงเครื่องครับ
             </p>
-            <button 
+            <button
               onClick={() => setShowLineHelp(false)}
               className="w-full bg-[#FF007A] text-white py-3 rounded-2xl font-black text-lg shadow-lg active:scale-95 transition-all"
             >
