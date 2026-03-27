@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sao Chingcha';
+  src: url('/fonts/SaoChingcha-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    @apply bg-[#FF007A] text-white;
+    font-family: 'Sao Chingcha', 'Sarabun', 'Noto Sans Thai', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.fortune-stick {
+  @apply bg-amber-100 border-2 border-fortune-gold rounded-full px-6 py-4 text-xl font-bold text-fortune-red cursor-pointer transition-all hover:scale-105 hover:shadow-lg active:scale-95 shadow-md flex items-center justify-center;
+}
+
+.cylinder {
+  @apply w-32 h-48 bg-fortune-red rounded-t-3xl rounded-b-xl border-4 border-fortune-gold relative shadow-2xl mx-auto;
+}
+
+.cylinder::after {
+  content: '';
+  @apply absolute top-4 left-1/2 -translate-x-1/2 w-4 h-full bg-fortune-gold opacity-20 rounded-full;
+}
